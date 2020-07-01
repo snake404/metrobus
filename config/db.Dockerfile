@@ -1,3 +1,3 @@
 FROM postgres:12-alpine
 EXPOSE 5432
-COPY *.* /docker-entrypoint-initdb.d/
+COPY *.sql /docker-entrypoint-initdb.d/

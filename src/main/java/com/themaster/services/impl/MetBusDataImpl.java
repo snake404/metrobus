@@ -191,7 +191,7 @@ public class MetBusDataImpl implements MetBusData{
         response.put(Constants.TOTAL_PAGES, busHistories.getTotalPages());
         response.put(Constants.TOTAL_ELEMENTS, busHistories.getTotalElements());
         response.put(Constants.DATA, listResponse);
-
+        log.info("Ending getHistoryByLocality");
         return response;
     }
 

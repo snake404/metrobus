@@ -1,0 +1,19 @@
+title Metrobus Project
+
+Client->Rest layer: HTTP request
+Rest layer->Service layer: Any method
+Cron->Datos Abiertos: Send HTTP request (Polygon) every 5 minutes
+Datos Abiertos-->Cron:if success: JSON
+Datos Abiertos-->Cron:if error: Http status
+note over Datos Abiertos,Cron: If error, I just log the exception
+Cron->(3)JPA:Transform records into entities
+JPA->Postgres: Insert records
+Service layer->JPA: Get data
+JPA->Postgres: Query
+Postgres-->JPA: Result set
+JPA-->Service layer: List of results
+Service layer-->Rest layer: If success: Send transformed data
+Service layer-->Rest layer: If error: Send Runtime exception
+
+Rest layer-->Client: If success or error, send JSON with all the data
+note over Rest layer,Client: If error: I just send a JSON with a message and errorCode
