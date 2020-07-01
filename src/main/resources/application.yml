@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: default
+  application:
+    name: MetrobusData
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    #hibernate:
+      #ddl-auto: none
+      #show-sql: true
+    open-in-view: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    username: postgres
+    password: 1234
+server:
+  port: 6969
+
+met:
+  metbusUrl: https://datos.cdmx.gob.mx/api/records/1.0/search/?dataset=prueba_fetchdata_metrobus&q=&rows=250
+  localitiesUrl: https://datos.cdmx.gob.mx/api/records/1.0/search/?dataset=limite-de-las-alcaldias&q=&rows=16
